@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://unpkg.com/htmx.org@1.9.11"
+    integrity="sha384-0gxUXCCR8yv9FM2b+U3FDbsKthCI66oH5IA9fHppQq9DDMHuMauqq1ZHBpJxQ0J0"
+    crossorigin="anonymous"></script>
+
+  <title>Hola Toriyama</title>
+
+</head>
+
+<body>
+  <div>
+    <h1>Hola Toriyama</h1>
+    <div style="display: grid; grid-template-columns: 1fr 1fr;">
+      <div>
+        <h2>Personajes</h2>
+        <form hx-get="/mix/" hx-target="#mix-response" hx-swap="beforeend" hx-indicator="#spinner">
+          <ul role="list" id="character-list">
+            {{ range .Characters }}
+              {{ block "character" .}}
+              <li style="display: flex; align-items: center; gap: 1rem;" class="character" id="{{ .Id }}">
+                <input id="select-{{ .Id }}" name="selected_characters" value="{{ .Name }}" type="checkbox">
+                <img style="width: 4rem;" src={{ .Image }} alt="" />
+                <div>
+                  <p>
+                    {{ .Name}}
+                  </p>
+                  <p>
+                    {{ .Race }}
+                  </p>
+                  <button hx-delete="/delete/{{ .Id }}" hx-target="closest .character" hx-swap="outerHTML">Eliminar</button>
+                </div>
+              </li>
+              {{ end }}
+            {{ end }}
+          </ul>
+          <button type="submit">Mezclar</button>
+        </form>
+
+      </div>
+      <div>
+        <h2>Agregar Personaje</h2>
+        <form hx-post="/add/" hx-target="#character-list" hx-swap="beforeend" hx-indicator="#spinner">
+
+            <div>
+              <div>
+                <label for="name">Nombre</label>
+                <div>
+                  <input type="text" name="name" id="name" />
+                </div>
+              </div>
+            
+              <div>
+                <label for="race">Especie</label>
+                <div>
+                  <input type="text" name="race" id="race"/>
+                </div>
+              </div>
+
+              <div>
+                <label for="image">Imagen</label>
+                <div>
+                  <input type="text" name="image" id="image"/>
+                </div>
+              </div>
+            </div>
+
+          <div>
+            <button type="button">
+              Cancelar
+            </button>
+            <button type="submit">
+              Agregar
+            </button>
+          </div>
+          <div role="status" id="spinner" class="htmx-indicator">
+            <img src="/images/loader1.gif" alt="">
+            <p>loading...</p>
+          </div>
+
+        </form>
+
+        <div style="margin-top: 2rem;" id="mix-response">
+          
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
