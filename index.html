@@ -15,10 +15,10 @@
 <body>
   <div>
     <h1>Hola Toriyama</h1>
-    <div style="display: grid; grid-template-columns: 1fr 1fr;">
+    <div style="display: grid; grid-template-columns: 1fr 1fr; column-gap: 2rem; justify-items: center;">
       <div>
         <h2>Personajes</h2>
-        <form hx-get="/mix/" hx-target="#mix-response" hx-swap="beforeend" hx-indicator="#spinner">
+        <form hx-get="/mix/" hx-target="#mix-response" hx-swap="beforeend show:top" hx-indicator="#spinner">
           <ul role="list" id="character-list">
             {{ range .Characters }}
               {{ block "character" .}}
@@ -32,7 +32,7 @@
                   <p>
                     {{ .Race }}
                   </p>
-                  <button hx-delete="/delete/{{ .Id }}" hx-target="closest .character" hx-swap="outerHTML">Eliminar</button>
+                  <button hx-delete="/delete/{{ .Id }}" hx-target="closest .character" hx-swap="outerHTML" hx-confirm="Estás seguro?">Eliminar</button>
                 </div>
               </li>
               {{ end }}
@@ -84,7 +84,7 @@
 
         </form>
 
-        <div style="margin-top: 2rem;" id="mix-response">
+        <div style="margin-top: 2rem; display: flex; flex-direction: column;" id="mix-response">
           
         </div>
 
