@@ -72,3 +72,6 @@ Inspiración y recursos
 * [Curso ThePrimeagen Frontendmasters en youtube gratis](https://youtu.be/x7v6SNIgJpE?si=O-y7sBebX-rKxjQ9)
 * [Video de BugBytes](https://youtu.be/F9H6vYelYyU?si=hjxJTQqzOx2ywLoT)
 * [The Valley of Code de Flavio Copes](https://thevalleyofcode.com/htmx)
+* [Podcast hx-pod](https://hx-pod.transistor.fm/)
+* [Charla Ryan Florence (Remix) acerca del network gap](https://youtu.be/zqhE-CepH2g?si=k-JiUcOtaBFFqAOI) 
+* [Revisión de las tripas de htmx por su creador](https://www.youtube.com/watch?v=javGxN-h9VQ)
