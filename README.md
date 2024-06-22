@@ -4,7 +4,7 @@ Homenaje a Akira Toriyama en Golang y HTMX
 
 ## Descripción
 
-Código para un taller en el contexto de TechSchool Concepción, iniciativa de [JavaScript Chile](https://jschile.org/)
+Código para curso de Udemy (https://www.udemy.com/course/htmx-para-principiantes)
 
 
 ### Requisitos
